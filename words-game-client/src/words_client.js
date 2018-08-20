@@ -15,8 +15,15 @@ class GameClientWindow extends React.Component {
     const chatBar = React.createElement(ChatBar);
     // return React.createElement('div', null, ['Hello', chatBar]);
     return <div class="gameClientWindow">
+      <HeaderBar />
       <PlayerList />
     </div>;
+  }
+}
+
+class HeaderBar extends React.Component {
+  render() {
+    return <div class="headerBar">Some Word Game</div>;
   }
 }
 
@@ -30,7 +37,6 @@ class ChatBar extends React.Component {
 class PlayerList extends React.Component {
   render() {
     return <div class="playerListCard">
-      Players List
       <ul className="playerList">
         <PlayerListEntry number="1"/>
         <PlayerListEntry number="2"/>
