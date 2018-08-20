@@ -1,0 +1,24 @@
+.chatBar {
+  border-radius: 1px;
+  border: solid black;
+  float: right;
+  height: 80vh;
+  width: 300px;
+  text-align: center;
+}
+
+.gameClientWindow {
+  background-color: #574f66;
+  height: 100vh;
+}
+
+.playerList {
+  float: left;
+  width: 300px;
+  list-style-type: none;
+}
+
+.playerListEntry {
+  border: solid black;
+  border-radius: 6px;
+}
