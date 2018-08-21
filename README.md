@@ -7,5 +7,7 @@ in a webpage.
 
 
 You can use pm2 to run the server
-```npm install pm2 -g
-pm2 start server.js```
+```
+npm install pm2 -g
+pm2 start server.js
+```
