@@ -1,0 +1,31 @@
+{
+  "name": "words-game",
+  "version": "0.0.1",
+  "description": "guess the words",
+  "main": "server/server.js",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-react-app": "^3.1.2",
+    "concurrently": "^3.6.1",
+    "pm2": "^3.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run server",
+    "server": "node ./server/server.js",
+    "client": "node ./words-game-client/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrandonKimchi/words-game.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrandonKimchi/words-game/issues"
+  },
+  "homepage": "https://github.com/BrandonKimchi/words-game#readme"
+}
