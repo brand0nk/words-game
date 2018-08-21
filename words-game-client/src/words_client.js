@@ -14,29 +14,30 @@ class GameClientWindow extends React.Component {
   render() {
     const chatBar = React.createElement(ChatBar);
     // return React.createElement('div', null, ['Hello', chatBar]);
-    return <div class="gameClientWindow">
+    return <div className="gameClientWindow">
       <HeaderBar />
       <PlayerList />
+      <GameView />
     </div>;
   }
 }
 
 class HeaderBar extends React.Component {
   render() {
-    return <div class="headerBar">Some Word Game</div>;
+    return <div className="headerBar">Explosion Festival</div>;
   }
 }
 
 class ChatBar extends React.Component {
   render() {
     // return React.createElement('div', ['class', 'chatBar'], 'chat');
-    return <div class="chatBar">chat</div>;
+    return <div className="chatBar">chat</div>;
   }
 }
 
 class PlayerList extends React.Component {
   render() {
-    return <div class="playerListCard">
+    return <div className="playerListCard">
       <ul className="playerList">
         <PlayerListEntry number="1"/>
         <PlayerListEntry number="2"/>
@@ -45,9 +46,39 @@ class PlayerList extends React.Component {
   }
 }
 
+class GameView extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: ""
+    }
+    this.handleKeydown = this.handleKeyDown.bind(this);
+  }
+
+  handleKeyDown(e) {
+    console.log(e.keyCode + 'a');
+    e.preventDefault();
+    // alert("aaaa");
+    // this.props.value = "hello";
+  }
+
+  render() {
+    return <div className="gameView">
+      {this.props.value}
+      <form id="gameInputForm" className="hidden" onKeyDown={(e) => this.handleKeyDown(e)}>
+        <input autoFocus="autofocus" type="text" autoComplete="off" autoCorrect="off" id="gameInput" maxLength="32"/>
+      </form>
+      {this.props.value}
+    </div>;
+  }
+
+
+}
+
 class PlayerListEntry extends React.Component {
   render() {
-    return <li class="playerListEntry">entry {this.props.number}</li>;
+    return <li className="playerListEntry">entry {this.props.number}</li>;
   }
 }
 //

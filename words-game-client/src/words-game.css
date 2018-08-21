@@ -34,3 +34,14 @@
   border: solid black;
   border-radius: 6px;
 }
+
+.gameView {
+  border: solid black 1px;
+  min-width: 200px;
+  min-height: 400px;
+  height: 90%;
+}
+
+hidden {
+  display: none;
+}
