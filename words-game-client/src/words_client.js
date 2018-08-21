@@ -57,8 +57,18 @@ class GameView extends React.Component {
   }
 
   handleKeyDown(e) {
-    console.log(e.keyCode + 'a');
-    e.preventDefault();
+    console.log(e.keyCode);
+    switch(e.keyCode) {
+    case 13: // enter key
+      e.preventDefault();
+      console.log("SEND IT");
+      break;
+    case 32: // space bar we just eat
+      e.preventDefault();
+      break;
+      // clear out value and do checking stuff.
+    }
+
     // alert("aaaa");
     // this.props.value = "hello";
   }
