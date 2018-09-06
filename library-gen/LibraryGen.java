@@ -23,10 +23,12 @@ public class LibraryGen {
 
       while (reader.hasNext()) {
         String word = reader.nextLine().trim().toLowerCase();
-        Set<String> substrings = genSubstrings(word);
+        if (isWordValid(word)) {
+          Set<String> substrings = genSubstrings(word);
 
-        for (String substring : substrings) {
-          insertSubstringWordPair(substring, word, substringMap);
+          for (String substring : substrings) {
+            insertSubstringWordPair(substring, word, substringMap);
+          }
         }
       }
 
@@ -37,6 +39,27 @@ public class LibraryGen {
       System.out.println("This file does not exist!");
       return;
     }
+  }
+
+  /**
+  * Toss out any words that don't meet criteria:
+  *  - Words must be at least 2 characters
+  *  - Words must be a single word
+  *  - Words must only contain alphabetic letters
+  */
+  private static boolean isWordValid(String word) {
+    if(word.length() < 2) {
+      return false;
+    }
+
+    for(int i = 0; i < word.length(); i++) {
+      char c = word.charAt(i);
+      if(!Character.isLetter(c)) {
+        return false;
+      }
+    }
+
+    return true;
   }
 
   /**
