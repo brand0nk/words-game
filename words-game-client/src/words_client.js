@@ -57,17 +57,24 @@ class GameView extends React.Component {
   }
 
   handleKeyDown(e) {
-    console.log(e.keyCode);
+    // console.log(e.keyCode);
     switch(e.keyCode) {
     case 13: // enter key
       e.preventDefault();
-      console.log("SEND IT");
+      // console.log("SEND IT");
+      // clear out value and do checking stuff.
+      var inputField = document.getElementById('gameInput');
+      var guess = inputField.value;
+      inputField.value = '';
+      console.log('Guess: ' + guess);
       break;
     case 32: // space bar we just eat
       e.preventDefault();
       break;
-      // clear out value and do checking stuff.
     }
+
+    // sync updated state to the server so people can see live typing?
+    // not for now, that sounds hard. we can send on guess though.
 
     // alert("aaaa");
     // this.props.value = "hello";
