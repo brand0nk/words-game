@@ -65,14 +65,17 @@ public class LibraryGen {
   /**
   * Write out the in-memory map to a file library.txt
   * Just overwrites anything that is there!!!
+  * Only writes out entries with more than 5 possible words
   */
   private static void dumpMap(Map<String, Set<String>> map) {
     File outfile = new File("./library.txt");
     try {
       FileWriter out = new FileWriter(outfile, false); // do not append, overwrite
       for (Map.Entry<String, Set<String>> entry : map.entrySet()) {
-        String value = entry.getValue().toString();
-        out.write(entry.getKey() + ": " + value.substring(1, value.length()-1) + "\n");
+        if(entry.getValue().size() >= 5) {
+          String value = entry.getValue().toString();
+          out.write(entry.getKey() + ": " + value.substring(1, value.length()-1) + "\n");
+        }
       }
       out.flush();
       out.close();
