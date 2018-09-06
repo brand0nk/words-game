@@ -71,12 +71,13 @@ public class LibraryGen {
     try {
       FileWriter out = new FileWriter(outfile, false); // do not append, overwrite
       for (Map.Entry<String, Set<String>> entry : map.entrySet()) {
-        out.write(entry.getKey() + ": " + entry.getValue() + "\n");
+        String value = entry.getValue().toString();
+        out.write(entry.getKey() + ": " + value.substring(1, value.length()-1) + "\n");
       }
       out.flush();
       out.close();
     } catch (IOException e) {
-      System.err.println("Writing file failed. Try re-running or soemthing");
+      System.err.println("Writing file failed. Try re-running or something");
     }
 
   }
