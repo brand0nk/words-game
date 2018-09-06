@@ -1,5 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.*;
 
 public class LibraryGen {
@@ -26,14 +25,50 @@ public class LibraryGen {
         String word = reader.nextLine().trim().toLowerCase();
         Set<String> substrings = genSubstrings(word);
 
-        System.out.println(word = ":");
-        System.out.println(substrings);
+        for (String substring : substrings) {
+          insertSubstringWordPair(substring, word, substringMap);
+        }
       }
+
+      reader.close();
+
+      dumpMap(substringMap);
     } catch (FileNotFoundException e) {
       System.out.println("This file does not exist!");
       return;
     }
+  }
 
+  /**
+  * Write out the in-memory map to a file library.txt
+  * Just overwrites anything that is there!!!
+  */
+  private static void dumpMap(Map<String, Set<String>> map) {
+    File outfile = new File("./library.txt");
+    try {
+      FileWriter out = new FileWriter(outfile, false); // do not append, overwrite
+      for (Map.Entry<String, Set<String>> entry : map.entrySet()) {
+        out.write(entry.getKey() + ": " + entry.getValue() + "\n");
+      }
+      out.flush();
+      out.close();
+    } catch (IOException e) {
+      System.err.println("Writing file failed. Try re-running or soemthing");
+    }
+
+  }
+
+  /**
+  * Insert a word into the set for the substring key in the given Map
+  * If there is not an entry for the substring, one will be created.
+  */
+  private static void insertSubstringWordPair(String substring, String word, Map<String, Set<String>> map) {
+    Set<String> words = map.get(substring);
+    if (words == null) {
+      words = new TreeSet<String>();
+      map.put(substring, words);
+    }
+    words.add(word);
   }
 
   /**
