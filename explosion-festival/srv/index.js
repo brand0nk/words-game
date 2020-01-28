@@ -25,4 +25,6 @@ app.post('/api/world', (req, res) => {
   );
 });
 
+app.use('/', express.static('./static'));
+
 app.listen(port, () => console.log(`Listening on port ${port}`));
