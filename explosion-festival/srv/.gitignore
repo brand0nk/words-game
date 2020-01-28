@@ -1,0 +1,4 @@
+./auth.json
+./*.db
+
+./yarn.lock
