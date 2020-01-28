@@ -9,5 +9,8 @@
     "express": "^4.17.1",
     "flow-bin": "^0.117.0",
     "redis": "^2.8.0"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }

@@ -62,4 +62,3 @@ typings/
 
 # java classes
 *.class
-explosion-festival/srv/yarn.lock

@@ -1,5 +1,3 @@
-// @flow
-
 const db = require('./db/db.js');
 
 function getUserSession(req, res, next) {
