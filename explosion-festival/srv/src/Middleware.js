@@ -1,5 +1,7 @@
 // @flow
 
+const db = require('./db/db.js');
+
 function getUserSession(req, res, next) {
     var accessToken = req.body.accessToken;
     if(accessToken != null) {
