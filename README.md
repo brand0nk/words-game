@@ -5,6 +5,14 @@ within a time limit.
 server runs a node endpoint that is connected to by the reactjs client embedded
 in a webpage.
 
+# Deployment
+```
+cd explosion-festival
+yarn build
+```
+will output a deployment ready app into the build folder
+
+
 
 You can use pm2 to run the server
 ```
